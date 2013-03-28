@@ -1,6 +1,6 @@
 require 'omniauth'
 
-module Omniauth
+module OmniAuth
   module Strategies
     class Icis
       include OmniAuth::Strategy
