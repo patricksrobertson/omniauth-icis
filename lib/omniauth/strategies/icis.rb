@@ -13,8 +13,6 @@ module OmniAuth
 
             session['omniauth.state'] = params[:state]
           end
-
-          params[:scope] ||= DEFAULT_SCOPE
         end
       end
     end
