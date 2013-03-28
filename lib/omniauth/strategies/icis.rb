@@ -3,7 +3,7 @@ require 'omniauth'
 module Omniauth
   module Strategies
     class Icis
-      include Omniauth::Strategy
+      include OmniAuth::Strategy
 
       option :client_options, {
             :site => 'https://icis-identity-example.herokuapp.com',
