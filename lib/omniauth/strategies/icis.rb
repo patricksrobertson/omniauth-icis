@@ -1,18 +1,12 @@
 require 'omniauth'
+require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Icis
-      include OmniAuth::Strategy
+    class Icis < OmniAuth::Strategies::OAuth2
+      option :name, "ICIS"
 
-      option :client_options, {
-            :site => 'https://icis-identity-example.herokuapp.com',
-      }
-
-
-      def request_phase
-        redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
-      end
+      option :client_options, { :site => 'https://icis-identity-example.herokuapp.com' }
     end
   end
 end
