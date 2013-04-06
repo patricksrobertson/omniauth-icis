@@ -6,9 +6,14 @@ module OmniAuth
     class Icis < OmniAuth::Strategies::OAuth2
       option :client_options, { :site => 'https://icis-identity-example.herokuapp.com' }
 
-      uid { raw_info["id"] }
+      uid { raw_info["uid"] }
 
-      info { { :email => raw_info["email"] } }
+      info { 
+        { :email      => raw_info['email'],
+          :first_name => raw_info['first_name'],
+          :last_name  => raw_info['last_name'],
+          :role       => 'staff' } 
+      }
 
       def authorize_params
         super.tap do |params|
